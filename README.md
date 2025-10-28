@@ -1,1 +1,1 @@
-Esse conteúdo foi copiado de https://github.com/tiagotas/MauiAppHotel.git conforme instruções, para desenvolvimento da agenda 13 do curso técnico de Desenvolvimento de Sistemas EAD.
+Esse conteúdo foi copiado de https://github.com/tiagotas/MauiAppHotel.git conforme instruções, para desenvolvimento da agenda 13, da disciplina Desenvolvimento de Sistemas II, do Curso Técnico em Desenvolvimento de Sistemas EAD do Centro Paula Souza.
