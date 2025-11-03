@@ -1,52 +1,32 @@
-﻿using MauiAppHotel.Models;
+﻿using Microsoft.Maui.Controls;
+using MauiAppHotel.Models;
+using System.Collections.Generic;
 
 namespace MauiAppHotel
 {
     public partial class App : Application
     {
-        public List<Quarto> lista_quartos = new List<Quarto>
-        {
-            new Quarto()
-            {
-                Descricao = "Suíte Super Luxo",
-                ValorDiariaAdulto = 110.0,
-                ValorDiariaCrianca = 55.0
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Luxo",
-                ValorDiariaAdulto = 80.0,
-                ValorDiariaCrianca = 40.0
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Single",
-                ValorDiariaAdulto = 50,
-                ValorDiariaCrianca = 25
-            },
-            new Quarto()
-            {
-                Descricao = "Suíte Crise",
-                ValorDiariaAdulto = 25,
-                ValorDiariaCrianca = 12.5
-            }
-        };
+        // Lista de quartos inicializada
+        public List<Quarto> lista_quartos { get; set; } = new List<Quarto>();
+
+        // Quarto selecionado — anulável
+        public Quarto? QuartoSelecionado { get; set; } = null;
+
+        // Lista de hospedagens inicializada
+        public List<Hospedagem> lista_hospedagens { get; set; } = new List<Hospedagem>();
+
+        // PropriedadesApp inicializada
+        public List<string> PropriedadesApp { get; set; } = new List<string>();
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.ContratacaoHospedagem());
-        }
+            // Exemplo: adicionar quartos iniciais
+            lista_quartos.Add(new Quarto("Quarto Luxo", 200, 100));
+            lista_quartos.Add(new Quarto("Quarto Standard", 150, 75));
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            var window = base.CreateWindow(activationState);
-
-            window.Width = 400;
-            window.Height = 600;
-
-            return window;
+            MainPage = new AppShell();
         }
     }
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiAppHotel.SobrePage"
+    Title="Sobre o App">
+
+	<VerticalStackLayout
+        Padding="20"
+        Spacing="15"
+        VerticalOptions="Center"
+        HorizontalOptions="Center">
+
+		<Label
+            Text="App Hotel"
+            FontSize="Large"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+		<Image
+            Source="dotnet_bot.png"
+            HeightRequest="100"
+            Aspect="AspectFit"
+            Margin="0,10,0,30" />
+
+		<Label
+            Text="Este aplicativo foi desenvolvido como parte da Agenda 13 da disciplina de Desenvolvimento de Sistemas II, do Curso Técnico em Desenvolvimento de Sistemas EAD do Centro Paula Souza."
+            HorizontalTextAlignment="Center"
+            FontSize="Medium" />
+
+		<BoxView
+            HeightRequest="1"
+            Color="Gray"
+            WidthRequest="200"
+            Margin="0,10" />
+
+		<Label
+            Text="Desenvolvido por: Juliana Alves Rodrigues"
+            FontSize="Medium"
+            FontAttributes="Bold" />
+
+		<Label
+            Text="Ano de Desenvolvimento: 2025"
+            FontSize="Medium" />
+
+	</VerticalStackLayout>
+
+</ContentPage>

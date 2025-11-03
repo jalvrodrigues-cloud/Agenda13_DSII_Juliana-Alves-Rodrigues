@@ -1,8 +1,8 @@
 ﻿namespace MauiAppHotel
 {
-    public partial class AppShell : Shell
+    public partial class SobrePage : ContentPage
     {
-        public AppShell()
+        public SobrePage()
         {
             InitializeComponent();
         }

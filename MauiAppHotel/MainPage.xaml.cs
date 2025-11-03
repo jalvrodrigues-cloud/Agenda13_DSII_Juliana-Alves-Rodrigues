@@ -1,25 +1,47 @@
-﻿namespace MauiAppHotel
+﻿using MauiAppHotel.Models;
+
+namespace MauiAppHotel
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
+
+            // Preencher Picker com os quartos do App
+            if (Application.Current is App app)
+            {
+                PickerQuartos.ItemsSource = app.lista_quartos;
+                PickerQuartos.ItemDisplayBinding = new Binding("Descricao");
+            }
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void Calcular_Clicked(object sender, EventArgs e)
         {
-            count++;
+            if (Application.Current is not App app) return;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+            // Validar entradas
+            if (!int.TryParse(EntryAdultos.Text, out int adultos)) adultos = 0;
+            if (!int.TryParse(EntryCriancas.Text, out int criancas)) criancas = 0;
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            if (PickerQuartos.SelectedItem is not Quarto quartoSelecionado)
+            {
+                DisplayAlert("Erro", "Selecione um tipo de suíte.", "OK");
+                return;
+            }
+
+            // Criar hospedagem
+            var hospedagem = new Hospedagem
+            {
+                QuartoSelecionado = quartoSelecionado,
+                QntAdultos = adultos,
+                QntCriancas = criancas,
+                DataCheckIn = DateCheckIn.Date,
+                DataCheckOut = DateCheckOut.Date
+            };
+
+            // Mostrar resultado
+            LabelResultado.Text = $"O valor total da hospedagem é: R$ {hospedagem.ValorTotal:F2}";
         }
     }
-
 }
